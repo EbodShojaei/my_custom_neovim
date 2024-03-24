@@ -25,8 +25,49 @@ end
 
 return packer.startup(function(use)
   use("wbthomason/packer.nvim")
+  
+  use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
   use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
+  use ("christoomey/vim-tmux-navigator") -- tmux & split window navigation
+  use ("szw/vim-maximizer") -- maximizes and restores current window
+
+  -- essential plugins
+  use("tpope/vim-surround") -- ysw+<char> to add, ds+<char> to del
+  use("vim-scripts/ReplaceWithRegister") -- yw to copy, grw to replace
+
+  -- commenting with gc
+  use("numToStr/Comment.nvim") -- gc+<char> (e.g., gcc is 1, gc3j is 3 down)
+  
+  -- file explorer
+  use("nvim-tree/nvim-tree.lua") -- <space>+e toggles the file explorer
+
+  -- icons
+  use("kyazdani42/nvim-web-devicons") -- VS code style file icons
+
+  -- statusline
+  use("nvim-lualine/lualine.nvim") -- status line ui for insert, visual, command modes
+
+  -- fuzzy finding
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- depends on telescope
+  use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
+
+  -- autocompletion
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
+
+  -- snippets
+  use("L3MON4D3/LuaSnip")
+  use("saadparwaiz1/cmp_luasnip")
+  use("rafamadriz/friendly-snippets")
+  
+  -- managing and installing lsp servers
+  use("williamboman/mason.nvim")
+  use("williamboman/mason-lspconfig.nvim")
+
+  -- configuring lsp servers
+  use("neovim/nvim-lspconfig")
 
 
   if packer_bootstrap then
