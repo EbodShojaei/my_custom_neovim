@@ -16,31 +16,25 @@ mason_lspconfig.setup({
     "html", -- html core
     "cssls", -- css core
     "tailwindcss", -- tailwind core
-    "sumneko_lua", -- lua core
+    -- "sumneko_lua", -- lua core
     -- custom below
     "arduino_language_server", -- Arduino core
-    "autopep8", -- python style
+    -- "autopep8", -- python style
     "basedpyright", -- python core
-    "bash_debug_adapter", -- bash debug
+    -- "bash_debug_adapter", -- bash debug
     "bashls", -- bash core
-    "blade_formatter", -- laravel style
-    "black", -- python style
-    "checkstyle", -- java style
-    "clang_format", -- C language style
+    -- "blade_formatter", -- laravel style
+    -- "black", -- python style
+    -- "checkstyle", -- java style
+    -- "clang_format", -- C language stylei TODO: resolve possible pathing error
     "clangd", -- C language compiler core
-    "cobol_ls",
+    -- "cobol_ls", -- TODO: resolve possible pathing error
     "csharp_ls",
-    "cpptools",
-    "css_variables", -- css core
     "cssmodules_ls", -- css core
-    "debugpy", -- python debug
     "docker_compose_language_service", -- docker core
     "dockerls", -- docker core
-    "erlangls",
+    -- "erlangls", -- TODO: resolve possible pathing error
     "eslint", -- javascript core
-    "html_beautifier", -- html formatter
-    "htmlhint", -- html linter
-    "ktlint", -- kotlin linter
     -- "gdscript",
     -- "glsl_analyzer", -- opengl core
     -- "glslls", -- opengl core
@@ -49,61 +43,37 @@ mason_lspconfig.setup({
     "gradle_ls",
     "grammarly",
     "htmx",
-    "hsl", -- haskell core
+    -- "hsl", -- haskell core TODO: resolve possible pathing error
     "intelephense", -- php core
-    "java_language_server", -- java core
-    "java_test", --java debug
+    -- "java_language_server", -- java core TODO: resolve possible pathing error
     "jdtls", -- java core
-    "js_debug_adapter", -- javascript debug
-    "jsonnetfmt", -- json formatter
-    "jsonlint", -- json linter
     "jsonls", -- json core
-    "kotlin_debug_adapter", -- kotlin debug
     "kotlin_language_server", -- kotlin jvm core
     "lua_ls", -- lua core
-    "markdownlint", -- markdown linter
     "marksman", -- markdown core
     -- "perlls",
     -- "perlnavigator",
     -- "perlpls",
-    "phpstan", -- php linter
-    "phan", -- php core
-    "php_debug_adapter", -- php debug
     "phpactor", -- php core
-    "phpmd", -- php markdown
     -- "postgres_lsp",
-    "pretty-php", -- php formatter
-    "php_cs_fixer", -- php debug
-    "prettier", -- javascript formatter
     "powershell_es", -- powershell core
-    "pylint", -- python linter
     "pylsp", -- python core
     "pylyzer", -- python core
     "pyre", -- python core
-    "pyright", -- python core
     "quick_lint_js", -- javascript core
     "r_language_server", -- r core
     -- "ruby_ls",
     "rust_analyzer",
-    -- "salt_ls",
-    -- "solargraph", -- ruby core
     "solang", -- solidity core
     "solidity",
     "solidity_ls",
     "solidity_ls_nomicfoundation",
-    "sourcekit", -- C, C++, Objective-C, Swift core
+    -- "sourcekit", -- C, C++, Objective-C, Swift core
     "sqlls", -- sql core
-    "sqls", -- sql core
-    "stylua", -- lua style
     -- "svelte",
     -- "svlangserver",
     -- "svls",
-    "ts_standard", -- typescript style
-    "vscode_java_decompiler", -- java helper
     "vimls", -- vim core
-    "xmlformatter", -- xml formatter
-    "yamlfix", -- yaml debug
-    "yamlfmt", -- yaml formatter
     "yamlls", -- yaml core
     "zk", -- zk plaintext core
     "zls", -- zig core
