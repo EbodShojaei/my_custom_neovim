@@ -68,7 +68,10 @@ return packer.startup(function(use)
 
   -- configuring lsp servers
   use("neovim/nvim-lspconfig")
-
+  use("hrsh7th/cmp-nvim-lsp") -- enable configuring lsp dropdown
+  use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhances lsp UX
+  use("jose-elias-alvarez/typescript.nvim") -- extends typescript actions
+  use("onsails/lspkind.nvim") -- add vscode icons to autocompletion window
 
   if packer_bootstrap then
     require("packer").sync()
