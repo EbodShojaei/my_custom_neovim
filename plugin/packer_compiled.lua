@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/lspkind.nvim",
@@ -175,8 +180,10 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-ts-autotag"] = {
+    load_after = {},
     loaded = true,
-    path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/nvim-ts-autotag",
+    needs_bufread = false,
+    path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/opt/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-web-devicons"] = {
@@ -232,6 +239,11 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd nvim-ts-autotag ]]
+time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
