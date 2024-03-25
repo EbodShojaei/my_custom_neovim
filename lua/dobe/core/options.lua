@@ -15,7 +15,7 @@ opt.wrap = false
 
 -- search settings
 opt.ignorecase = true
-opt.smartcase =true
+opt.smartcase = true
 
 -- cursor line
 opt.cursorline = true
@@ -36,4 +36,3 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
-
