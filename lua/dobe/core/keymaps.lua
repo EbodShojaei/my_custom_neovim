@@ -37,3 +37,5 @@ keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find current 
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- show active buffers
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- show help tags
 
+-- restart lsp server (not on youtube nvim video)
+keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary

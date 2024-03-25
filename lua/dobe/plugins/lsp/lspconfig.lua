@@ -1,9 +1,30 @@
 -- credits to grammenoudis (see: https://github.com/grammenoudis/LazyNvim/blob/main/lua/completion-cmp/init.lua)
-local lspconfig = require('lspconfig')
-require("mason").setup({
+
+-- import lspconfig plugin safely
+local lspconfig_status, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status then
+  return
+end
+
+local mason_status, mason = pcall(require, "mason")
+if not mason_status then
+  return
+end
+
+mason.setup({
   ui = {icons = {package_installed = "✓", package_pending = "➜", package_uninstalled = "✗"}}
 })
-require("mason-lspconfig").setup()
+
+local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_status then
+  return
+end
+
+mason_lspconfig.setup()
+
+local keymap = vim.keymap
+-- keybind options
+local opts = { noremap = true, silent = true }
 -- require("luasnip.loaders.from_vscode").lazy_load()
 local cmp = require 'cmp'
 local select_opts = {behavior = cmp.SelectBehavior.Select}
@@ -37,21 +58,19 @@ cmp.setup({
     -- documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({select = true}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      local col = vim.fn.col('.') - 1
-
-      if cmp.visible() then
-        cmp.select_next_item(select_opts)
-      elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        fallback()
-      else
-        cmp.complete()
-      end
-    end, {'i', 's'})
+    -- set keybinds
+    keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts), -- show definition, references
+    keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts), -- got to declaration
+    keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts), -- see definition and make edits in window
+    keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts), -- go to implementation
+    keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts), -- see available code actions
+    keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts), -- smart rename
+    keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts), -- show  diagnostics for line
+    keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts), -- show diagnostics for cursor
+    keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts), -- jump to previous diagnostic in buffer
+    keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts), -- jump to next diagnostic in buffer
+    keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts), -- show documentation for what is under cursor
+    keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
   }),
   sources = cmp.config.sources({
     {name = 'nvim_lsp'}, -- { name = 'vsnip' }, -- For vsnip users.
@@ -87,6 +106,17 @@ require('mason-lspconfig').setup_handlers({
     lspconfig[server].setup {capabilities = capabilities}
   end,
   ['tsserver'] = function()
-    lspconfig.tsserver.setup({settings = {completions = {completeFunctionCalls = true}}})
+    lspconfig.tsserver.setup({
+      capabilities = capabilities,
+      settings = {completions = {completeFunctionCalls = true}},
+      on_attach = function(client, bufnr)
+        -- typescript specific keymaps (e.g. rename file and update imports)
+        if client.name == "tsserver" then
+          keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>", { buffer = bufnr }) -- rename file and update imports
+          keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>", { buffer = bufnr }) -- organize imports (not in youtube nvim video)
+          keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>", { buffer = bufnr }) -- remove unused variables (not in youtube nvim video)
+        end
+      end
+    })
   end
 })
