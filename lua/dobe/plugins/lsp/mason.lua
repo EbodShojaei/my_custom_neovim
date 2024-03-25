@@ -79,10 +79,13 @@ mason_lspconfig.setup({
     "yamlls", -- yaml core
     "zk", -- zk plaintext core
     "zls", -- zig core
-  }  
+  },
+  -- auto-install configured servers (with lspconfig)
+  automatic_installation = true, -- not the same as ensure_installed
 })
 
 mason_null_ls.setup({
+  -- list of formatters and linters for mason to install
   ensure_installed = {
     "prettier", -- js, ts, css linter
     "stylua", -- lua linter
@@ -97,6 +100,8 @@ mason_null_ls.setup({
     "solhint", -- solidity linter
     "sqlfluff", -- sql linter
     "yamllint", -- yaml linter
-  }
+  },
+  -- auto-install configured formatters and linters (with null-ls)
+  automatic_installation = true,
 })
 
