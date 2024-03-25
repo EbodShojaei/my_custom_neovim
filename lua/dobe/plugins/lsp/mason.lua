@@ -33,7 +33,7 @@ mason_lspconfig.setup({
     "cssmodules_ls", -- css core
     "docker_compose_language_service", -- docker core
     "dockerls", -- docker core
-    -- "erlangls", -- TODO: resolve possible pathing error
+    "elp", -- erlang core 
     "eslint", -- javascript core
     -- "gdscript",
     -- "glsl_analyzer", -- opengl core
@@ -43,7 +43,7 @@ mason_lspconfig.setup({
     "gradle_ls",
     "grammarly",
     "htmx",
-    -- "hsl", -- haskell core TODO: resolve possible pathing error
+    -- "hls", -- haskell core TODO: resolve possible pathing error
     "intelephense", -- php core
     -- "java_language_server", -- java core TODO: resolve possible pathing error
     "jdtls", -- java core
