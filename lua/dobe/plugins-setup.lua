@@ -73,6 +73,9 @@ return packer.startup(function(use)
   use("jose-elias-alvarez/typescript.nvim") -- extends typescript actions
   use("onsails/lspkind.nvim") -- add vscode icons to autocompletion window
 
+  -- formatting and linting
+  use("jose-elias-alvarez/null-ls.nvim")
+
   if packer_bootstrap then
     require("packer").sync()
   end
