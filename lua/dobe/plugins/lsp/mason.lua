@@ -83,18 +83,20 @@ mason_lspconfig.setup({
 })
 
 mason_null_ls.setup({
-  "prettier", -- js, ts, css linter
-  "stylua", -- lua linter
-  "checkstyle", -- java linter
-  "eslint_d", -- js, jsx linter
-  "golangci_lint", -- golang linter
-  "ktlint", -- kotlin linter
-  "jsonlint", -- json linter
-  "markdownlint", -- markdown linter
-  "phpstan", -- php linter
-  "pylint", -- python linter by flake8 devs
-  "solhint", -- solidity linter
-  "sqlfluff", -- sql linter
-  "yamllint", -- yaml linter
+  ensure_installed = {
+    "prettier", -- js, ts, css linter
+    "stylua", -- lua linter
+    "checkstyle", -- java linter
+    "eslint_d", -- js, jsx linter
+    "golangci_lint", -- golang linter
+    "ktlint", -- kotlin linter
+    "jsonlint", -- json linter
+    "markdownlint", -- markdown linter
+    "phpstan", -- php linter
+    "pylint", -- python linter by flake8 devs
+    "solhint", -- solidity linter
+    "sqlfluff", -- sql linter
+    "yamllint", -- yaml linter
+  }
 })
 
