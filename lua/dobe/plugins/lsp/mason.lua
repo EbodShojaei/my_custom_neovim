@@ -8,6 +8,11 @@ if not mason_lspconfig_status then
   return
 end
 
+local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
+if not mason_null_ls_status then
+  return
+end
+
 mason.setup()
 
 mason_lspconfig.setup({
@@ -24,8 +29,6 @@ mason_lspconfig.setup({
     -- "bash_debug_adapter", -- bash debug
     "bashls", -- bash core
     -- "blade_formatter", -- laravel style
-    -- "black", -- python style
-    -- "checkstyle", -- java style
     -- "clang_format", -- C language stylei TODO: resolve possible pathing error
     "clangd", -- C language compiler core
     -- "cobol_ls", -- TODO: resolve possible pathing error
@@ -45,7 +48,6 @@ mason_lspconfig.setup({
     "htmx",
     -- "hls", -- haskell core TODO: resolve possible pathing error
     "intelephense", -- php core
-    -- "java_language_server", -- java core TODO: resolve possible pathing error
     "jdtls", -- java core
     "jsonls", -- json core
     "kotlin_language_server", -- kotlin jvm core
@@ -78,5 +80,21 @@ mason_lspconfig.setup({
     "zk", -- zk plaintext core
     "zls", -- zig core
   }  
+})
+
+mason_null_ls.setup({
+  "prettier", -- js, ts, css linter
+  "stylua", -- lua linter
+  "checkstyle", -- java linter
+  "eslint_d", -- js, jsx linter
+  "golangci_lint", -- golang linter
+  "ktlint", -- kotlin linter
+  "jsonlint", -- json linter
+  "markdownlint", -- markdown linter
+  "phpstan", -- php linter
+  "pylint", -- python linter by flake8 devs
+  "solhint", -- solidity linter
+  "sqlfluff", -- sql linter
+  "yamllint", -- yaml linter
 })
 

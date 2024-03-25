@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
+  ["mason-null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/mason-null-ls.nvim",
+    url = "https://github.com/jayp0521/mason-null-ls.nvim"
+  },
   ["mason.nvim"] = {
     loaded = true,
     path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/mason.nvim",

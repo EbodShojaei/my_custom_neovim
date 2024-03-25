@@ -10,4 +10,5 @@ require("dobe.plugins.nvim-cmp")
 require("dobe.plugins.lsp.mason")
 require("dobe.plugins.lsp.lspsaga")
 require("dobe.plugins.lsp.lspconfig")
+require("dobe.plugins.lsp.null-ls")
 

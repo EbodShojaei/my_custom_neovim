@@ -120,3 +120,23 @@ require('mason-lspconfig').setup_handlers({
     })
   end
 })
+
+-- Configure lua server with special settings
+lspconfig["lua_ls"].setup({
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      -- Make the language server recognize "vim" global
+      diagnostics = {
+        globals = {"vim"},
+      },
+      workspace = {
+        -- Make the language server aware of runtime files
+        library = {
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.stdpath("config") .. "/lua"] = true,
+        },
+      },
+    },
+  },
+})

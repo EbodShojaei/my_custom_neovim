@@ -62,7 +62,7 @@ return packer.startup(function(use)
   use("saadparwaiz1/cmp_luasnip")
   use("rafamadriz/friendly-snippets")
   
-  -- managing and installing lsp servers
+  -- managing and installing lsp servers, linters, and formatters
   use("williamboman/mason.nvim")
   use("williamboman/mason-lspconfig.nvim")
 
@@ -75,6 +75,7 @@ return packer.startup(function(use)
 
   -- formatting and linting
   use("jose-elias-alvarez/null-ls.nvim")
+  use("jayp0521/mason-null-ls.nvim")
 
   if packer_bootstrap then
     require("packer").sync()
