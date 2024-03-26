@@ -32,3 +32,20 @@ copilot.setup({
 })
 
 vim.g.copilot_assume_mapped = true
+
+-- lua function to toggle copilot
+local suggest_status, suggest = pcall(require, "copilot.suggestion")
+if not suggest_status then
+	return
+end
+
+-- lua function to toggle Copilot auto-trigger
+local function copilot_suggest()
+	suggest.toggle_auto_trigger()
+end
+
+-- create the vim command
+vim.api.nvim_create_user_command("CopilotSuggest", copilot_suggest, {})
+
+-- set keymap to vim command
+vim.api.nvim_set_keymap("n", "<leader>cs", ":CopilotSuggest<CR>", { noremap = true, silent = true })
