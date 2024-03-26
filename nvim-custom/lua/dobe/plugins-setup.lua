@@ -48,6 +48,7 @@ return packer.startup(function(use)
 
 	-- statusline
 	use("nvim-lualine/lualine.nvim") -- status line ui for insert, visual, command modes
+	use("AndreM222/copilot-lualine") -- copilot integration
 
 	-- fuzzy finding
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- depends on telescope
@@ -92,6 +93,9 @@ return packer.startup(function(use)
 
 	-- git signs plugin
 	use("lewis6991/gitsigns.nvim")
+
+	-- github copilot
+	use("zbirenbaum/copilot.lua")
 
 	if packer_bootstrap then
 		require("packer").sync()

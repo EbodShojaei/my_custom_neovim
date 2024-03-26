@@ -109,6 +109,16 @@ _G.packer_plugins = {
     path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["copilot-lualine"] = {
+    loaded = true,
+    path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/copilot-lualine",
+    url = "https://github.com/AndreM222/copilot-lualine"
+  },
+  ["copilot.lua"] = {
+    loaded = true,
+    path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/copilot.lua",
+    url = "https://github.com/zbirenbaum/copilot.lua"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/friendly-snippets",
@@ -211,6 +221,11 @@ _G.packer_plugins = {
     path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   ["typescript.nvim"] = {
     loaded = true,
     path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/typescript.nvim",
@@ -220,11 +235,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/vim-maximizer",
     url = "https://github.com/szw/vim-maximizer"
-  },
-  ["vim-nightfly-guicolors"] = {
-    loaded = true,
-    path = "/Users/ebodshojaei/.local/share/nvim-custom/site/pack/packer/start/vim-nightfly-guicolors",
-    url = "https://github.com/bluz71/vim-nightfly-guicolors"
   },
   ["vim-surround"] = {
     loaded = true,
