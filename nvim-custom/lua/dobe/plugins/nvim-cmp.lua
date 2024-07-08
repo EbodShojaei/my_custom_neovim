@@ -72,17 +72,6 @@ cmp.setup({
 		}),
 		-- close open buffers
 		["<Esc>"] = cmp.mapping.abort(),
-		-- close suggestions
-		-- ["<C-c>"] = cmp.mapping(function(fallback)
-		-- 	if require("copilot.suggestion").is_visible() then
-		-- 		require("copilot.suggestion").dismiss()
-		-- 	else
-		-- 		fallback()
-		-- 	end
-		-- end, {
-		-- 	"i",
-		-- 	"s",
-		-- }),
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" }, -- lsp

@@ -91,6 +91,15 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
 
+	-- toggle split terminal
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+		config = function()
+			require("dobe.plugins.toggleterm")
+		end,
+	})
+
 	-- git signs plugin
 	use("lewis6991/gitsigns.nvim")
 

@@ -39,3 +39,11 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- show help tags
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
+-- CUSTOM KEYMAPS
+-- keymap to create a new split terminal window set to the current working directory
+keymap.set("n", "<leader>st", ":split term://zsh<CR>")
+-- new keymap using toggleterm plugin via Packer
+local opts = { noremap = true, silent = true }
+-- :ToggleTerm<CR> to open a terminal window
+keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<CR>", opts)
