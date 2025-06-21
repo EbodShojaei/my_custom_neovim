@@ -116,3 +116,4 @@ source $ZSH/oh-my-zsh.sh
 if [ -z "$TMUX" ]; then  # Check if we're already in a tmux session
   tmux attach -t dev || tmux new-session -s dev # Attach if session exists, create if not
 fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
