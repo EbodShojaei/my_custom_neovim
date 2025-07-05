@@ -110,10 +110,27 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# My custom aliases
+alias python='python3'
+alias vscode="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-if [ -z "$TMUX" ]; then  # Check if we're already in a tmux session
-  tmux attach -t dev || tmux new-session -s dev # Attach if session exists, create if not
+# Auto-start (or attach) tmux for every interactive shell that is not already
+# running inside one. When launched from VS Code we create/attach to a session
+# named after the project folder; otherwise we default to a shared "dev" session.
+# Using `exec` replaces the current shell with tmux and prevents nested shells.
+if command -v tmux >/dev/null 2>&1 && [[ -o interactive ]] && [[ -z "$TMUX" ]]; then
+  if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+    SESSION_NAME="$(basename "$PWD")"
+  else
+    SESSION_NAME="dev"
+  fi
+  exec tmux new-session -A -s "$SESSION_NAME"
 fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Created by `pipx` on 2025-06-22 05:01:01
+export PATH="$PATH:/Users/ebodshojaei/.local/bin"
